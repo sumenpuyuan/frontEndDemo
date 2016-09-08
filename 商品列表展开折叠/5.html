@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<link href="css/css.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="jquery-3.1.0.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var $category=$('ul li:gt(5):not(:last)');
+			//获取ul元素下索引值大于5的li元素的集合元素，去掉结合集合元素的最后一个
+			$category.hide();
+			var $toggleBtn=$("div.showmore > a");
+			//获取 显示全部品牌 按钮
+			//class为showmore的div的所有子元素a
+			$toggleBtn.click(function(){
+				if($category.is(":visible")){//如果元素显示
+					$category.hide();
+					$(this).find("span")
+						.css("background","url('img/down.gif')no-repeat 0 0")
+						.text("显示全部品牌");
+					$('ul li').removeClass("promoted");//去掉高亮样式
+				}
+				else{
+					$category.show();//显示全部品牌
+					//换成精简显示品牌
+					$(this).find("span")
+						.css("background","url(img/up.gif) no-repeat 0 0")
+						.text("精简显示品牌");
+					//高亮显示
+					$("ul li")
+						.filter(":contains('2'),:contains('1')")
+						.addClass("promoted");
+				}
+				return false;//超链接不跳转
+			});
+			
+		})
+	</script>
+</head>
+<body>
+<div class="SubCategoryBox">
+	<ul>
+		<li><a href="#">1</a><i>30400</i></li>
+		<li><a href="#">2</a><i>30400</i></li>
+		<li><a href="#">3</a><i>30400</i></li>
+		<li><a href="#">4</a><i>30400</i></li>
+		<li><a href="#">5</a><i>30400</i></li>
+		<li><a href="#">6</a><i>30400</i></li>
+		<li><a href="#">7</a><i>30400</i></li>
+		<li><a href="#">8</a><i>30400</i></li>
+		<li><a href="#">9</a><i>30400</i></li>
+		<li><a href="#">10</a><i>30400</i></li>
+		<li><a href="#">11</a><i>30400</i></li>
+		<li><a href="#">12</a><i>30400</i></li>
+		<li><a href="#">13</a><i>30400</i></li>
+	</ul>
+	<div class="showmore">
+		<a href="more.html"><span>显示全部品牌</span></a>
+	</div>
+</div>
+</body>
+</html>
