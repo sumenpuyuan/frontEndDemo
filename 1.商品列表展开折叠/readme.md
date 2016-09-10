@@ -46,3 +46,21 @@
 <p>
 	<span style="white-space:pre">	</span>:visible 选取所有可见的元素
 </p>
+<p>
+	<span style="white-space:pre">	</span>
+</p>
+<p>
+	<span style="white-space:pre">	</span>.css(name,value)给元素设置样式
+</p>
+<p>
+	<span style="white-space:pre">	</span>.text(string)设置所有匹配元素的内容
+</p>
+<p>
+	<span style="white-space:pre">	</span>filter(expr)筛选出与指定表达式匹配的元素集合，其中expr可以是多个选择器的组合。
+</p>
+<p>
+	<span style="white-space:pre">	</span>.addClass(class)未匹配的元素添加指定的类名
+</p>
+<p>
+	<span style="white-space:pre">	</span>return &nbsp;false;js设置超链接不跳转
+</p>
