@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+	<style type="text/css">
+		body{
+			margin:0;
+			padding:40px;
+			background:#fff;
+			font:80% Arial, Helvetica, sans-serif;
+			color:#555;
+			line-height:180%;
+		}
+		img{border:none;}
+		ul,li{
+			margin:0;
+			padding:0;
+		}
+		li{
+			list-style:none;
+			float:left;
+			display:inline;
+			margin-right:10px;
+			border:1px solid #AAAAAA;
+		}
+
+		/* tooltip */
+		#tooltip{
+			position:absolute;
+			border:1px solid #ccc;
+			background:#333;
+			padding:2px;
+			display:none;
+			color:#fff;
+		}
+	</style>
+	<script type="text/javascript" src="jquery.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var x=10;
+			var y=20;
+			$("a.tooltip")
+				.mouseover(function(e){
+					this.myTitle=this.title;
+					this.title="";
+					var imageTitle=this.myTitle?"<br/>"+this.myTitle :"";
+					var tooltip="<div id='tooltip'><img src='"+this.href+"'alt='产品预览图'/>"+imageTitle+"</div>";//创建div元素
+					$("body").append(tooltip);
+					$("#tooltip")
+						.css({
+							"top":(e.pageY+y)+"px",
+							"left":(e.pageX+x)+"px"
+						}).show("fast");;
+				})
+				.mouseout(function(){
+					this.title=this.myTitle;
+					$("#tooltip").remove();
+				})
+				.mousemove(function(e){
+					$("#tooltip")
+						.css({
+							"top":(e.pageY+y)+"px",
+							"left":(e.pageX+x)+"px"
+						});
+				});
+		});
+	</script>
+</head>
+<body>
+	<ul>
+		<li><a href="images/apple_1_bigger.jpg" class="tooltip" title="苹果ipod" ><img src="images/apple_1.jpg" alt="苹果ipod"/></a></li>
+		<li><a href="images/apple_2_bigger.jpg" class="tooltip" title="苹果ipod nano" ><img src="images/apple_2.jpg" alt="苹果ipod nano"/></a></li>
+		<li><a href="images/apple_3_bigger.jpg" class="tooltip" title="苹果iphone" ><img src="images/apple_3.jpg" alt="苹果iphone"/></a></li>
+		<li><a href="images/apple_4_bigger.jpg" class="tooltip" title="苹果mac" ><img src="images/apple_4.jpg" alt="苹果mac"/></a></li>
+
+</body>
+</html>
