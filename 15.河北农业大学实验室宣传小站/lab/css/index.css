@@ -1,0 +1,87 @@
+
+	*{margin:0;padding:0;}/*浏览器兼容性*/
+	#Top{width:100%;height:149px;background:url("../images/headbg.jpg");}
+	#Top .head{width:1000px;height:30px;line-height:30px;margin:0px auto;font-size:13px;font-family:微软雅黑;}/*margin水平居中,字体大小，类型,line-height设置文字行高*/
+	#Top .head span{font-weight:bold;/*加粗*/
+	/*border:1px solid red;边框*//*内边距*/float:right;}
+	#Top .head a{color:#000;text-decoration:none;/*去掉下划线*/padding:0px 5px;/*内边距*/}
+	#Top .head a:hover{color:#e20076}/*鼠标移动到超链接时，变换颜色*/
+
+	#header{width:1000px;height:70px;margin:0px auto;}
+	#header .banner{width:439px;height:70px;float:left;}
+
+	#header .logo{width:350px;height:70px;float:left;line-height:70px;}/*浮动属性*/
+	#header .logo a{text-decoration:none;color:#000;font-size:15px;font-family:微软雅黑;font-weight:bold;padding:0 20px;}
+	#header .logo a:hover{color:#e20076;}
+
+	#header .search{width:180px;height:70px;float:right;padding-top:22px;position:relative;}/*搜索框*/
+	#header .search input.text{width:140px;height:24px;border:1px solid #e1e1e1;color:#999;text-indent:10px;/*首行缩进*/position:absolute;}
+	#header .search input.button{width:26px;height:25px;background:url("../images/sosoh.jpg");border:1px;position:absolute;left:140px;}
+	
+	#Top .Nav{width:1000px;height:49px;margin:0 auto;}
+	#Top .Nav .MainNav{width:600px;height:49px;float:left;}
+	#Top .Nav .smallnav{width:220px;height:49px;float:right;font-family:微软雅黑;
+				font-size:14px;line-height:49px;color:#fff;}
+	
+	#Top .Nav .MainNav ul li{list-style-type:none;float:left;width:100px;height:49px;line-height:49px;
+			text-align:center;/*文字水平居中*/
+			font-size:15px;font-family:微软雅黑;color:#fff;font-weight:bold;}/*去掉圆点点*/
+	#Top .Nav .MainNav ul li a{color:#fff;text-decoration:none;position:relative;}
+
+	#Top .Nav .smallnav ul li{list-style-type:none;float:left;}
+	#Top .Nav .smallnav ul li a{text-decoration:none;color:#fff;}
+	#Top .Nav .smallnav ul li a:hover{color:#e20076;}
+	#Top .Nav .MainNav ul li .menu{width:150px;
+				border-top:0px;border-left:0px;
+				filter:Alpha(opacity=90);-moz-opacity: 0.9; opacity: 0.9;/*背景透明*/
+				background:#1287b4;position:absolute;/*绝对定位在上面*/display:none;z-index:2;}
+	#Top .Nav .MainNav ul li.hover{background:#1287B4}
+	#Top .Nav .MainNav ul li .menu p{text-align:left;}
+	/*幻灯片*/
+	#Adv {width:100%;height:421px;background:#5C307D;position:relative;}
+	#Adv .ImageList{width:100%;height:421px;position:absolute;left:0px;margin-top:0px;}
+	#Adv .ImageList .image{background:url(../images/adv1.jpg);background-size:100% 100%;}
+	#Adv ul.button li{width:50px;height:20px;background:#5C307D;border:2px solid #fff;float:left;
+	margin:0 10px;list-style-type:none;/*去掉默认样式*/}
+	#Adv ul.button{height:20px;position:absolute;left:38%;bottom:17px;
+	display:inline-block;/*行内块级元素，内容自适应，内容有多少，就有多宽，定位元素会在
+	没有定位元素上面
+	*/
+	z-index:3;
+	}
+	#Adv ul.button li.hover{background:#fff;}
+/*大框*/
+	#middle{height:400px;width:100%;}
+/*实验室要闻框*/
+	#LabNews{height:400px;width:40%;margin-left:10%;float:left;border-right:1px solid gray;}
+	#LabNews .News{width:40%;height:30px;line-height:30px;
+				margin:20px;border:3px solid #5C307D;border-bottom:none;padding:10px;
+				font-weight:bold;}
+	#LabNews ul li{font-size:16px;color:black;font-family:微软雅黑;font-weight:bold;
+					line-height:40px;text-indent:20px;/*首行缩进*/background:url(../images/li_dian.png) no-repeat 6px 15px;
+					list-style-type:none;border-bottom:1px dashed #e5e5e5;
+					}
+	#LabNews ul li a{color:black;text-decoration:none;}
+	#LabNews ul li a:hover{color:#5C307D}
+	#LabNews ul li span{color:#b23b25;float:right;margin-right:10px;}
+	
+
+	/*通知公告部分*/
+	#Notice{height:400px;width:40%;float:right;margin-right:9%;margin-top:0;position:relative;}
+	
+	#Notice .Inform{width:40%;height:30px;line-height:30px;
+					margin:20px;border:3px solid #5C307D;border-bottom:none;padding:10px;
+					font-weight:bold;
+					}
+	#Notice ul li{font-size:16px;font-family:微软雅黑;font-weight:bold;
+				line-height:40px;text-indent:20px;background:url(../images/li_dian.png) no-repeat 6px 17px;
+				list-style-type:none;border-bottom:1px dashed #e5e5e5;
+	}
+	#Notice ul li a{color:black;text-decoration:none;}
+	#Notice ul li a:hover{color:#5c307d;}
+	#Notice ul li span{color:#B23B25;float:right;}
+	.bottom{width:100%;height:100px;background:#5C307D;font-family:Georgia;
+				font-size:12px;color:#fff;postion:relative}
+	.bottom02{width:100%;height:100px;background:#5C307D;font-family:Georgia;font-size:12px;color:#fff;}
+	.bottom span{margin-left:9%;}
+

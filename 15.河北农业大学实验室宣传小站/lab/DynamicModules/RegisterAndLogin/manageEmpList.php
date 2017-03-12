@@ -1,0 +1,139 @@
+<html>
+<head>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<title>管理员界面</title>
+		<meta name="Keywords" content="登录界面">
+		<meta name="description" content="登录">	
+		<link href="../../images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+	<style type="text/css">
+	*{margin:0px;}
+	body{background:#f8f7f5;}
+
+	#Top{width:100%; height:120px; background:#5C307D;}
+	 #Banner{width:1000px; height:70px;  margin:0px auto;padding-top:10px;}
+	</style>
+
+
+</head>
+<body>
+<div id="Top">
+<div id="Banner"><img src="../../images/logo.png">
+</div>
+</div>
+<hr/>
+<?php
+		
+	//1.从函数得到
+	require_once 'EmpService.class.php';
+	require_once 'FenyePage.class.php';
+	$empService=new EmpService();
+	
+	
+	
+	//创建一个分页对象
+	$fenyePage=new FenyePage();
+	//默认显示第一页内容
+	$fenyePage->pageNow=1;
+	
+	//这里添加逻辑处理[获取用户点击的分页超链接]
+	if(!empty($_GET['pageNow'])){
+		$fenyePage->pageNow=$_GET['pageNow'];
+	}
+	//默认每页显示6条记录
+	$fenyePage->pageSize=6;
+	//默认将分页请求发送给哪个页面
+	$fenyePage->goUrl="manageEmpList.php";
+	//调用 $empService 的方法
+	$empService->showEmpByPage2($fenyePage);
+	echo "<center>";
+	echo "<h1>创新实验室名单</h1>";
+		
+	echo "<table width='500px' style='line-height:25px' border='1' cellspacing='0' bordercolor='green'>";
+	//表头
+	echo "<tr><td>id</td><td>用户名</td><td>专业</td><td>年级</td><td>性别</td><td>邮件</td><td>修改用户</td><td>删除用户</td></tr>";
+	
+	foreach ($fenyePage->res as $row){
+		
+		echo "<tr><td>{$row['empid']}</td><td>{$row['name']}</td><td>{$row['major']}</td>
+			<td>{$row['grade']}</td>
+			<td>{$row['sex']}</td>
+			<td>{$row['email']}</td>
+			<td><a href='updateEmpUi.php?id={$row['empid']}'>修改用户</a></td>
+			<td><a onclick='return confirmDel({$row['empid']})' href='EmpController.php?do=delete&id={$row['empid']}'>删除用户</a></td></tr>";
+		
+	}
+	echo "</center>";
+	
+	echo "</table>";
+	
+	echo $fenyePage->navigator;
+		
+	
+?>
+<hr/>
+
+<script type="text/javascript">
+<!--
+
+	//确认删除该用户
+	function confirmDel(id){
+		//这个函数返回bool
+		return window.confirm("真的删除 "+id+"号 用户");
+	}
+
+	function go(){
+
+		var pageNow=document.getElementById('pageNow').value;
+		//发给manageEmpList.php[get]
+		window.location.href='manageEmpList.php?pageNow='+pageNow;
+		
+	}
+
+	//校验用户输入的值是否是整数.(isNaN) 0123
+
+	function checkPageNow(){
+
+		
+		//1.获取用户输入
+		var pageNow=document.getElementById('pageNow').value;
+
+		//alert(pageNow);
+		//2.校验 isNaN如果不是数，返回真
+		/*if(isNaN(pageNow)){
+			alert('输入的跳转页数有错误!');
+			return false;//!!
+		}*/
+		//3.这里正则表达式处理
+		//pageNow 这个数必须满足,要以1-9,后面的数是0-9的数
+		var reg=/^[1-9](\d)*$/; 
+		//reg.test(pageNow) 表示使用reg这个规则，来测试一下pageNow字符串是否合法
+		//如果合法 ture,否则 false;
+		if(pageNow!=""){
+			if(!reg.test(pageNow)){
+				alert('输入的跳转页数有错误!');
+				//把最后输入截掉
+				document.getElementById('pageNow').value=pageNow.substring(0,pageNow.length-1);
+				return false;	
+			}else{
+				
+				//格式ok
+				if(pageNow><?php echo $fenyePage->pageCount;?>){
+					alert('输入值过大');
+					//把最后输入截掉
+					document.getElementById('pageNow').value=pageNow.substring(0,pageNow.length-1);
+				}
+			}
+		}else{
+			alert('不能为空');
+		}
+
+		
+		
+		
+	}
+
+
+//-->
+</script>
+</body>
+</html>

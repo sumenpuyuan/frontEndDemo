@@ -1,0 +1,10 @@
+*{margin:0px;}
+	body{background:#f8f7f5;}
+	#Login{width:340px; height:410px; background:#fff; margin:50px auto; border:1px solid #ddd;border-radius:10px;}
+	#Login h3{font-size:14px;text-indent:45px;height:85px;	line-height:85px;}
+	#Login .loginCon{width:252px; height:250px; margin:0px auto;}
+	#Login .loginCon p.txt{ padding-bottom:20px;}
+	#Login .loginCon p.txt input{width:240px; height:35px; border:1px solid #ddd; 
+				border-radius:5px;/*css3 圆角样式*/}
+	#Login .loginCon p.txt input.yzm{width:80px;}
+	#Login .loginCon p.txt input.but{width:90px; height:40px; background:#5c307d; color:#fff;}

@@ -1,0 +1,61 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>注册界面</title>
+		<meta name="Keywords" content="注册界面">
+		<meta name="description" content="注册">	
+		<!--css , js-->
+<style type="text/css">
+*{margin:0px;}
+body{background:#f8f7f5;}
+
+#Top{width:100%; height:120px; background:#5C307D;}
+#Top #Banner{width:1000px; height:70px;  margin:0px auto;
+			padding-top:10px;}
+#Login{width:340px; height:450px; background:#fff; margin:50px auto; border:1px solid #ddd;border-radius:10px;}
+#Login h3{font-size:14px;text-indent:45px;height:85px;	line-height:85px;}
+#Login .loginCon{width:252px; height:250px; margin:0px auto;}
+#Login .loginCon p.txt{ padding-bottom:20px;}
+#Login .loginCon p.txt input{width:240px; height:35px; border:1px solid #ddd; 
+				border-radius:5px;/*css3 圆角样式*/}
+#Login .loginCon p.txt input.yzm{width:80px;}
+#Login .loginCon p.txt input.but{width:90px; height:40px; background:#5c307d; color:#fff;}
+</style>
+	</head>
+
+
+<body>
+
+<div id="Top">
+	<div id="Banner"><img src="../../images/logo.png" /></div>
+</div>	
+
+<div id="Login">
+	<h3>账户注册</h3>
+	<div class="loginCon">
+<form name="form1" method="post" action="result.php">
+			<p class="txt"><input type="text" name="userid" placeholder="用户名"/></p>
+			<p class="txt"><input type="password" name="pwd" placeholder="密码"/></p>
+			<p class="txt"><input type="password" name="pwd" placeholder="请再次输入密码"/></p>
+
+	<p><img id="captcha_img" border="1" src="captcha_cn.php?r=<?php echo rand();?>" width="180" height="40">
+    <a href="javascript:void(0)" onClick="document.getElementById('captcha_img').src='captcha_cn.php?r='+Math.random()" style="text-decoration:none;color:#000;font-weight:bold;"><font size="2px">换一个</font></a>
+   </p>
+   <br>
+   <p class="txt"><input type="text" class="yzm" id="vdcode" name="authcode" placeholder="验证码"/>
+		
+	<p class="txt"><input type="submit" class="but"  name="sm1"/></p>
+
+
+  
+		</form>
+	</div>
+</div>
+
+
+
+</body>
+</html>

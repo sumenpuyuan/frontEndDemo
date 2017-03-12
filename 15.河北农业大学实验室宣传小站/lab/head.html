@@ -1,0 +1,121 @@
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<meta name="lvxuejie" content="EditPlus®">
+	<meta name="lvxuejuie" content="">
+	<meta name="创新实验室" content="">
+	<meta name="Description" content="">
+	<link href="/lab/images/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+	<!--页面左上角的图标-->
+	<title>创新实验室</title>
+	<link rel="stylesheet" type="text/css" href="/lab/css/index.css">
+
+</head>
+<body>
+<div id="Top">
+	<div class="head">
+	<!--头部信息区域-->
+	
+	<!--<div class="head"><img src="/images/favicon.ico" align="absmiddle" ><!--align图片与div中的元素绝对居中-->	
+	<!--<span style="color:#666;letter-spacing:1px"><!--字体间距-->
+	<!--信息学院创新实验室</span>-->
+	
+	<span ><a href="/lab/lab/DynamicModules/RegisterAndLogin/user/login.php">登陆</a>&nbsp<a href="/lab/lab/DynamicModules/RegisterAndLogin/1.html">注册</a>&nbsp
+	<a href="/lab/DynamicModules/RegisterAndLogin/login.php">管员通道</a></span>
+	<!--banner开始-->
+	</div>
+	<div id="header">
+	<div class="banner"><a href="http://lab.52nongda.com"><img src="/lab/images/logo.png" height="70"></a></div>
+	
+	<div class="logo">
+
+	<a href="http://lab.52nongda.com">首页</a>
+	<a href="http://52nongda.com">农大论坛</a> 
+	<a href="http://shang.qq.com/wpa/qunwpa?idkey=062e14be6b32504d388c2a392bfbecf39ba8c4eeb1d44ebd6ebe0cb448ca5d83">实验室QQ群</a>
+	
+	</div>
+	<!--搜索框-->
+	<div class="search">
+	<form action="/lab/error.html" method="get">
+	<input type="text" class="text" value="输入关键字">
+	<input type="submit" class="button" value="">
+	</form>
+	</div>
+	</div>
+	<!--banner结束-->
+
+	<!--导航开始-->
+	<div class="Nav">
+	<div class="MainNav">
+	<ul>
+		<li><a href="#">实验室概况</a><div class="menu">
+		<p>&nbsp&nbsp<a href="/lab/error.html">成立缘由</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">正式成立</a></p>
+		</div>
+		</li>
+		<li><a href="/lab/error.html">文化</a><div class="menu">
+		<p>&nbsp&nbsp<a href="lab/error.html">13届师兄感想</a></p>
+		</div></li>
+		<li><a href="lab/error.html">成员</a><div class="menu">
+		<p>&nbsp&nbsp<a href="/lab/error.html">08届</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">13届</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">14届</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">15届</a></p>
+		</div></li>
+		<li><a href="/lab/error.html">作品</a><div class="menu">
+		<p>&nbsp&nbsp<a href="/lab/error.html">四轴飞行器</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">3D激光扫描</a></p>
+		<p>&nbsp&nbsp<a href="/lab/error.html">斌哥小车</a></p>
+		</div></li>
+		<li><a href="/lab/DynamicModules/RegisterAndLogin/message.php">开发留言板</a></li>
+	</ul>
+	</div>
+	<div class="smallnav">
+	<ul>
+	<li>热词:&nbsp</li>
+	<li><a href="lab/error.html">2015招新</a>&nbsp</li>
+	<li><a href="lab/error.html">3D扫描仪</a>&nbsp</li>
+	</div>
+	</div>
+	<!--导航结束-->
+</div>
+<script type="text/javascript" src="/lab/js/jquery.js">//引入js文件	</script>
+<script type="text/javascript">
+	/*val d_Value=$(".search input.text").val();//获取默认值，输入关键字
+	alert(d_Value);
+	$(".search input.text").focus(function(){
+		
+	});*/
+	var a=$(".search input.text").val();//获取默认关键字
+	//alert(a);
+	//下面是得到焦点时
+	$(".search input.text").focus(function(){
+		//$(this)等价于".search input.text"
+		if($(this).val()==a)
+		{
+			$(this).val("");//设置为空
+		}
+	});
+	//下面是失去焦点时
+	$("$.search input.text").blur(
+		function()
+		{
+			if($(this).val()=="")
+			{
+				$(this).val(a);
+			}
+		}
+	);
+	//下面是二级菜单
+	$(".Nav .MainNav ul li").hover(function(){
+		$(this).find(".menu").show();//显示
+		$(this).addClass("hover");//给li添加hover属性
+	},
+	function(){
+		$(this).find(".menu").hide();//隐藏
+		$(this).removeClass("hover");//移除
+	})
+
+</script>
+</body>
+</html>

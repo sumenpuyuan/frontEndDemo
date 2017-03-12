@@ -1,0 +1,65 @@
+<html>
+<head>
+<title>搜索用户</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+<body>
+<?php 
+	require_once 'EmpService.class.php';
+	require_once 'FenyePage.class.php';
+	$fenyePage=new FenyePage();
+	$seaType='1';
+	$keywords='';
+	//$arr=array();
+	//接收用户输入的keyword, 查询方式
+	
+	if(isset($_REQUEST['keyword'])){
+		
+		$keywords=$_REQUEST['keyword'];
+		$seaType=$_REQUEST['seaType'];
+		if(isset($_REQUEST['pageNow'])){
+		$pageNow=$_REQUEST['pageNow'];
+		$fenyePage->pageNow=$pageNow;
+		}
+		$empService =new EmpService();
+		$fenyePage->goUrl="searchEmp.php";
+		$fenyePage->condition="&keyword=$keywords&seaType=$seaType";
+		$arr=$empService->seaEmp($keywords,$seaType,$fenyePage);
+		echo 
+		"<script type=\"text/javascript\"> var mypageCount={$fenyePage->pageCount}</script>";
+		 
+	}
+	
+
+?>
+<h1>搜索用户</h1>
+<form action="searchEmp.php" method="post">
+请输入人名<input type="text" name="keyword" value="<?php echo $keywords?>"/>
+<input type="submit" value="搜" >
+<input type="radio" name="seaType" value="1" <?php if($seaType=="1") echo "checked"; ?>  />模糊查询
+<input type="radio" name="seaType" value="2" <?php if($seaType=="2") echo "checked"; ?>/>精确查询
+</form>
+<?php 
+
+
+	echo "<h1>雇员列表</h1>";
+	
+	if($fenyePage->res!=""){
+	echo "<table width='500px' style='line-height:25px' border='1' cellspacing='0' bordercolor='green'>";
+	//表头
+	echo "<tr><td>id</td><td>用户名</td><td>邮件</td><td>修改用户</td><td>删除用户</td></tr>";
+	
+	foreach ($fenyePage->res as $emp){
+		echo "<tr><td>{$emp['empid']}</td><td>{$emp['name']}</td><td>{$emp['email']}</td>}</td><td>修改用户</td><td>删除用户</td></tr>";
+	}
+	
+	
+	
+	echo "</table>";
+	echo $fenyePage->navigator;
+	}
+?>
+<!-- 使用引入js文件 -->
+<script type="text/javascript" src="my.js"></script>
+</body>
+</html>

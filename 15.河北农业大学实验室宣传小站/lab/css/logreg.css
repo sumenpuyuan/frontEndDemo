@@ -1,0 +1,14 @@
+*{margin:0px;}
+body{background:#f8f7f5}
+#login {width:340px;height:350px;background:#fff;margin:120px auto;border:1px solid #ddd;
+				}
+#login h3{font-family:Î¢ÈíÑÅºÚ;font-weight:bold;margin-top:18px;
+			font-size:18px;text-indent:45px;/*Ê×ÐÐËõ½ø*/}
+#login .loginCon{width:252px;height:250px;margin:30px auto;}
+#login .loginCon p.text{padding-bottom:20px;}
+#login .loginCon p.text input{width:240px;height:35px;border:19x solid #ddd;
+				border-radius:5px;/*ÊäÈë¿òÔ²½Ç*/}
+#login .loginCon p.yzm input{width:100px;height:35px;border:19x solid #ddd;
+				border-radius:5px;/*ÊäÈë¿òÔ²½Ç*/}
+#login .loginCon p.text input.button{margin-top:20px;width:90px;height:40px;background:#5c307c;
+			color:#fff;}
